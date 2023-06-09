@@ -1,10 +1,10 @@
 let emoticonArray = ['🐮', '🐯', '🐼', '🐨', '🐵', '🐷', '🐸'];
 
-function getRandomEmoticon(min, max, array) {
+function getRandomEmoticon(min, max) {
   let rand = min - 0.5 + Math.random() * (max - min + 1);
   let number = Math.round(rand);
 
-  return array[number];
+  return emoticonArray[number];
 };
 
-export { emoticonArray, getRandomEmoticon };
+export { getRandomEmoticon };

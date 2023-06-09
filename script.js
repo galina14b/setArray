@@ -1,6 +1,6 @@
 'use strict'
 
-import { emoticonArray, getRandomEmoticon } from './js/emoticons.js';
+import { getRandomEmoticon } from './js/emoticons.js';
 
 
 // DOM Elements
@@ -12,26 +12,20 @@ const setBlock = document.querySelector('.set');
 let array = [];
 let set = new Set();
 
-window.onload = () => {
-  inputData.value = getRandomEmoticon(0, 6, emoticonArray);
-};
+inputData.value = getRandomEmoticon(0, 6);
 
 form.addEventListener('submit', function (event) {
   event.preventDefault();
-  let inputContent = event.target.children[0].value;
 
-  array.push(inputContent);
-  set.add(inputContent);
+  array.push(inputData.value);
+  set.add(inputData.value);
 
   arrayBlock.textContent = `Типовий Array: [ ${array} ]`;
-  let setContent = [];
+  let setContent = [...set];
 
-  for (let item of set) {
-    setContent.push(item);
-  }
   setBlock.textContent = `Типовий Set: [ ${setContent} ]`;
 
-  inputData.value = getRandomEmoticon(0, 6, emoticonArray);
+  inputData.value = getRandomEmoticon(0, 6);
 
 })
 
